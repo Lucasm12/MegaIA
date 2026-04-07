@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega-Sena Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4facfe;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #00f2fe;
+        }
+
+        #jogo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 Mega-Sena Online</h1>
+        <button id="gerar">Gerar Jogo</button>
+
+        <h2>Top 10 dezenas mais frequentes:</h2>
+        <ul id="top10"></ul>
+
+        <h2>🎯 Jogo sugerido:</h2>
+        <div id="jogo"></div>
+    </div>
+
+    <script>
+        const URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/megasena";
+
+        async function obterResultados(qtd = 50) {
+            let resultados = [];
+            for (let i = 1; i <= qtd; i++) {
+                try {
+                    const response = await fetch(`${URL}/${i}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        resultados.push(...data.listaDezenas);
+                    }
+                } catch (e) {
+                    console.warn("Erro ao buscar concurso", i);
+                }
+            }
+            return resultados;
+        }
+
+        function calcularFrequencia(dezenas) {
+            const freq = {};
+            dezenas.forEach(num => {
+                freq[num] = (freq[num] || 0) + 1;
+            });
+            return freq;
+        }
+
+        function gerarJogo(frequencias) {
+            const maisFrequentes = Object.entries(frequencias)
+                .sort((a,b) => b[1]-a[1])
+                .slice(0,15)
+                .map(([num]) => parseInt(num));
+
+            const jogo = [];
+            while(jogo.length < 6) {
+                const idx = Math.floor(Math.random() * maisFrequentes.length);
+                const num = maisFrequentes[idx];
+                if(!jogo.includes(num)) jogo.push(num);
+            }
+
+            return jogo.sort((a,b) => a-b);
+        }
+
+        document.getElementById("gerar").addEventListener("click", async () => {
+            document.getElementById("top10").innerHTML = "Carregando...";
+            document.getElementById("jogo").innerText = "";
+
+            const dezenas = await obterResultados(50);
+            const frequencias = calcularFrequencia(dezenas);
+
+            const top10 = Object.entries(frequencias)
+                .sort((a,b) => b[1]-a[1])
+                .slice(0,10);
+
+            const ul = document.getElementById("top10");
+            ul.innerHTML = "";
+            top10.forEach(([num,freq]) => {
+                const li = document.createElement("li");
+                li.textContent = `${num}: ${freq} vezes`;
+                ul.appendChild(li);
+            });
+
+            const jogo = gerarJogo(frequencias);
+            document.getElementById("jogo").innerText = jogo.join(" - ");
+        });
+    </script>
+</body>
+</html>
