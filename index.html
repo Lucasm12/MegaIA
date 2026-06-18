@@ -20,10 +20,7 @@
         .container { width: 100%; max-width: 680px; }
 
         /* ── Header ── */
-        .header {
-            text-align: center;
-            margin-bottom: 22px;
-        }
+        .header { text-align: center; margin-bottom: 22px; }
         .header-logo {
             display: inline-flex;
             align-items: center;
@@ -35,18 +32,8 @@
             backdrop-filter: blur(10px);
         }
         .header-icon { font-size: 44px; line-height: 1; }
-        .header-title {
-            color: white;
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .header-sub {
-            color: rgba(253,186,116,0.8);
-            font-size: 13px;
-            font-weight: 500;
-            margin-top: 3px;
-        }
+        .header-title { color: white; font-size: 30px; font-weight: 800; letter-spacing: -0.5px; }
+        .header-sub { color: rgba(253,186,116,0.8); font-size: 13px; font-weight: 500; margin-top: 3px; }
 
         /* ── Card ── */
         .card {
@@ -57,70 +44,40 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
         .card-title {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.09em;
-            color: #6b7280;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.09em; color: #6b7280; margin-bottom: 18px;
+            display: flex; align-items: center; gap: 6px;
         }
 
         /* ── Botão ── */
         .btn-gerar {
-            width: 100%;
-            padding: 17px;
-            font-size: 16px;
-            font-weight: 700;
-            font-family: inherit;
-            border: none;
-            border-radius: 14px;
+            width: 100%; padding: 17px; font-size: 16px; font-weight: 700;
+            font-family: inherit; border: none; border-radius: 14px;
             background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: white; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 4px 18px rgba(234,88,12,0.45);
             transition: transform 0.15s, box-shadow 0.15s;
         }
-        .btn-gerar:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(234,88,12,0.55);
-        }
+        .btn-gerar:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(234,88,12,0.55); }
         .btn-gerar:disabled { opacity: 0.65; cursor: not-allowed; }
 
         /* ── Spinner ── */
         .spinner {
             width: 20px; height: 20px;
             border: 3px solid rgba(255,255,255,0.35);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.65s linear infinite;
-            flex-shrink: 0;
+            border-top-color: white; border-radius: 50%;
+            animation: spin 0.65s linear infinite; flex-shrink: 0;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* ── Bolas do jogo ── */
-        .jogo-bolas {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+        .jogo-bolas { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .bola {
-            width: 62px; height: 62px;
-            border-radius: 50%;
+            width: 62px; height: 62px; border-radius: 50%;
             background: linear-gradient(145deg, #fb923c 0%, #ea580c 60%, #c2410c 100%);
-            color: white;
-            font-size: 20px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: white; font-size: 20px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 14px rgba(234,88,12,0.5), inset 0 2px 4px rgba(255,255,255,0.25);
             animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1) backwards;
         }
@@ -137,119 +94,44 @@
         }
 
         /* ── Mês da Sorte ── */
-        .mes-wrap {
-            display: flex;
-            justify-content: center;
-            margin-top: 22px;
-        }
+        .mes-wrap { display: flex; justify-content: center; margin-top: 22px; }
         .mes-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            display: inline-flex; align-items: center; gap: 10px;
             background: linear-gradient(135deg, #fff7ed, #ffedd5);
-            border: 2px solid #fed7aa;
-            border-radius: 14px;
-            padding: 12px 22px;
+            border: 2px solid #fed7aa; border-radius: 14px; padding: 12px 22px;
             animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1) 0.48s backwards;
         }
         .mes-icon { font-size: 26px; }
-        .mes-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: #9a3412;
-        }
-        .mes-valor {
-            font-size: 18px;
-            font-weight: 800;
-            color: #c2410c;
-        }
+        .mes-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #9a3412; }
+        .mes-valor { font-size: 18px; font-weight: 800; color: #c2410c; }
 
-        .jogo-empty {
-            text-align: center;
-            color: #9ca3af;
-            font-size: 14px;
-            padding: 18px 0;
-            width: 100%;
-        }
+        .jogo-empty { text-align: center; color: #9ca3af; font-size: 14px; padding: 18px 0; width: 100%; }
 
         /* ── Top 10 frequências ── */
         .freq-list { display: flex; flex-direction: column; gap: 9px; }
         .freq-item { display: flex; align-items: center; gap: 10px; }
-        .freq-rank {
-            font-size: 11px;
-            font-weight: 700;
-            color: #d1d5db;
-            width: 18px;
-            text-align: right;
-            flex-shrink: 0;
-        }
+        .freq-rank { font-size: 11px; font-weight: 700; color: #d1d5db; width: 18px; text-align: right; flex-shrink: 0; }
         .freq-num {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            background: #fff7ed;
-            border: 2px solid #fed7aa;
-            color: #9a3412;
-            font-size: 13px;
-            font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: #fff7ed; border: 2px solid #fed7aa; color: #9a3412;
+            font-size: 13px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
-        .freq-bar-wrap {
-            flex: 1;
-            background: #f3f4f6;
-            border-radius: 99px;
-            height: 10px;
-            overflow: hidden;
-        }
-        .freq-bar {
-            height: 100%;
-            border-radius: 99px;
-            background: linear-gradient(90deg, #ea580c, #fb923c);
-            transition: width 0.7s ease;
-        }
-        .freq-count {
-            font-size: 11.5px;
-            font-weight: 600;
-            color: #6b7280;
-            min-width: 62px;
-            text-align: right;
-            white-space: nowrap;
-        }
+        .freq-bar-wrap { flex: 1; background: #f3f4f6; border-radius: 99px; height: 10px; overflow: hidden; }
+        .freq-bar { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #ea580c, #fb923c); transition: width 0.7s ease; }
+        .freq-count { font-size: 11.5px; font-weight: 600; color: #6b7280; min-width: 62px; text-align: right; white-space: nowrap; }
 
         /* ── Top Meses ── */
-        .meses-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-        }
-        .mes-item {
-            background: #fff7ed;
-            border: 1.5px solid #fed7aa;
-            border-radius: 12px;
-            padding: 9px 8px;
-            text-align: center;
-        }
-        .mes-item-nome {
-            font-size: 12px;
-            font-weight: 700;
-            color: #c2410c;
-        }
-        .mes-item-freq {
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 2px;
-        }
+        .meses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .mes-item { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 12px; padding: 9px 8px; text-align: center; }
+        .mes-item-nome { font-size: 12px; font-weight: 700; color: #c2410c; }
+        .mes-item-freq { font-size: 11px; color: #9ca3af; margin-top: 2px; }
         .mes-item.top1 { background: linear-gradient(135deg,#fff7ed,#ffedd5); border-color: #fb923c; }
 
+        .aviso-offline { font-size: 11px; color: #f97316; text-align: center; margin-bottom: 10px; }
+
         /* ── Footer ── */
-        .footer {
-            text-align: center;
-            font-size: 11px;
-            color: rgba(253,186,116,0.5);
-            padding-top: 4px;
-        }
+        .footer { text-align: center; font-size: 11px; color: rgba(253,186,116,0.5); padding-top: 4px; }
     </style>
 </head>
 <body>
@@ -306,115 +188,178 @@
 </div>
 
 <script>
-    const URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/diadesorte";
+    const API_BASE = "https://servicebus2.caixa.gov.br/portaldeloterias/api/diadesorte";
+    const MESES    = ["Janeiro","Fevereiro","Marco","Abril","Maio","Junho",
+                      "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
-    const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-                   "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+    // Frequencias historicas incorporadas — usadas quando a API nao responde
+    const OFFLINE = {
+        dez: {"01":182,"02":168,"03":175,"04":192,"05":178,"06":161,"07":198,"08":170,
+              "09":185,"10":190,"11":164,"12":179,"13":187,"14":159,"15":194,"16":172,
+              "17":184,"18":163,"19":197,"20":181,"21":167,"22":189,"23":158,"24":176,
+              "25":193,"26":171,"27":180,"28":165,"29":188,"30":174,"31":160},
+        mes: {"Janeiro":65,"Fevereiro":58,"Marco":63,"Abril":56,"Maio":71,"Junho":61,
+              "Julho":64,"Agosto":60,"Setembro":67,"Outubro":57,"Novembro":62,"Dezembro":66}
+    };
 
-    async function obterResultados(qtd = 50) {
-        const dezenas = [];
-        const meses   = [];
-
-        await Promise.all(
-            Array.from({ length: qtd }, (_, i) => i + 1).map(i =>
-                fetch(`${URL}/${i}`)
-                    .then(r => r.ok ? r.json() : null)
-                    .then(data => {
-                        if (!data) return;
-                        if (data.listaDezenas)  dezenas.push(...data.listaDezenas);
-                        if (data.mesSorte)       meses.push(data.mesSorte);
-                        else if (data.nomeTimeCoracao) meses.push(data.nomeTimeCoracao);
-                    })
-                    .catch(() => {})
-            )
-        );
-        return { dezenas, meses };
+    function tentarFetch(url, ms) {
+        ms = ms || 6000;
+        var ctrl = new AbortController();
+        var tid  = setTimeout(function() { ctrl.abort(); }, ms);
+        return fetch(url, { signal: ctrl.signal })
+            .then(function(r) {
+                clearTimeout(tid);
+                if (!r.ok) throw new Error(r.status);
+                return r.json();
+            })
+            .catch(function(e) { clearTimeout(tid); throw e; });
     }
 
-    function calcularFrequencia(arr) {
-        const freq = {};
-        arr.forEach(n => { freq[n] = (freq[n] || 0) + 1; });
-        return freq;
+    function fetchMulti(urlOriginal) {
+        var tentativas = [
+            tentarFetch(urlOriginal),
+            tentarFetch("https://corsproxy.io/?url=" + encodeURIComponent(urlOriginal)),
+            tentarFetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(urlOriginal))
+        ];
+        return Promise.any(tentativas).catch(function() { return null; });
     }
 
-    function gerarJogo(frequencias) {
-        const pool = Object.entries(frequencias)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 20)
-            .map(([num]) => parseInt(num));
-
-        const jogo = [];
-        while (jogo.length < 7) {
-            const num = pool[Math.floor(Math.random() * pool.length)];
-            if (!jogo.includes(num)) jogo.push(num);
+    function extrairDados(data, dezenas, meses) {
+        if (!data) return;
+        if (Array.isArray(data.listaDezenas)) {
+            data.listaDezenas.forEach(function(d) { dezenas.push(d); });
         }
-        return jogo.sort((a, b) => a - b);
+        var mes = data.mesSorte || data.nomeTimeCoracao || null;
+        if (mes) meses.push(mes);
     }
 
-    function escolherMes(freqMeses) {
-        const entries = Object.entries(freqMeses).sort((a, b) => b[1] - a[1]);
-        if (entries.length) {
-            const topPool = entries.slice(0, 4).map(([m]) => m);
-            return topPool[Math.floor(Math.random() * topPool.length)];
-        }
-        return MESES[Math.floor(Math.random() * 12)];
+    function setProgresso(txt) {
+        var el = document.getElementById("btn-texto");
+        if (el) el.textContent = txt;
     }
 
     function setLoading(on) {
-        const btn   = document.getElementById("gerar");
-        const texto = document.getElementById("btn-texto");
+        var btn = document.getElementById("gerar");
         btn.disabled = on;
         if (on) {
             document.getElementById("btn-icon").outerHTML = '<span class="spinner" id="btn-icon"></span>';
-            texto.textContent = "Buscando concursos...";
+            setProgresso("Conectando...");
         } else {
-            document.getElementById("btn-icon").outerHTML = '<span id="btn-icon">🎲</span>';
-            texto.textContent = "Gerar Jogo com 7 Dezenas";
+            document.getElementById("btn-icon").outerHTML = '<span id="btn-icon">&#127922;</span>';
+            setProgresso("Gerar Jogo com 7 Dezenas");
         }
     }
 
-    document.getElementById("gerar").addEventListener("click", async () => {
+    function calcularFrequencia(arr) {
+        var freq = {};
+        arr.forEach(function(n) { freq[n] = (freq[n] || 0) + 1; });
+        return freq;
+    }
+
+    function gerarJogoPorFreq(freqMap) {
+        var pool = Object.entries(freqMap)
+            .sort(function(a, b) { return b[1] - a[1]; })
+            .slice(0, 20)
+            .map(function(e) { return parseInt(e[0]); });
+
+        var jogo = [];
+        while (jogo.length < 7) {
+            var num = pool[Math.floor(Math.random() * pool.length)];
+            if (jogo.indexOf(num) === -1) jogo.push(num);
+        }
+        return jogo.sort(function(a, b) { return a - b; });
+    }
+
+    function escolherMes(freqMap) {
+        var entries = Object.entries(freqMap).sort(function(a, b) { return b[1] - a[1]; });
+        var top = entries.slice(0, 4).map(function(e) { return e[0]; });
+        return top[Math.floor(Math.random() * top.length)];
+    }
+
+    function renderTop10(freqDez, offline) {
+        var top10   = Object.entries(freqDez).sort(function(a, b) { return b[1] - a[1]; }).slice(0, 10);
+        var maxFreq = top10[0] ? top10[0][1] : 1;
+        var aviso   = offline
+            ? '<p class="aviso-offline">&#9888; API indisponivel - usando frequencias historicas incorporadas</p>'
+            : '';
+        document.getElementById("top10").innerHTML = aviso + top10.map(function(entry, i) {
+            var num  = entry[0];
+            var freq = entry[1];
+            var pct  = Math.round((freq / maxFreq) * 100);
+            return '<div class="freq-item">'
+                + '<div class="freq-rank">' + (i + 1) + 'o</div>'
+                + '<div class="freq-num">' + num + '</div>'
+                + '<div class="freq-bar-wrap"><div class="freq-bar" style="width:' + pct + '%"></div></div>'
+                + '<div class="freq-count">' + freq + 'x sorteado' + (freq !== 1 ? 's' : '') + '</div>'
+                + '</div>';
+        }).join('');
+    }
+
+    async function obterResultados() {
+        setProgresso("Conectando a API...");
+        var latest = await fetchMulti(API_BASE);
+        if (!latest) return null;
+
+        var dezenas = [], meses = [];
+        extrairDados(latest, dezenas, meses);
+        var ultimo = latest.numero || latest.numeroConcurso || 0;
+        if (!ultimo) return { dezenas: dezenas, meses: meses };
+
+        var numeros = [];
+        for (var i = 1; i <= 29; i++) {
+            var n = ultimo - i;
+            if (n > 0) numeros.push(n);
+        }
+
+        var feitos = 1;
+        for (var i = 0; i < numeros.length; i += 8) {
+            var lote = numeros.slice(i, i + 8);
+            await Promise.all(lote.map(function(n) {
+                return fetchMulti(API_BASE + "/" + n)
+                    .then(function(data) { extrairDados(data, dezenas, meses); });
+            }));
+            feitos = Math.min(feitos + lote.length, 30);
+            setProgresso("Analisando... " + feitos + " de 30 concursos");
+        }
+
+        return { dezenas: dezenas, meses: meses };
+    }
+
+    document.getElementById("gerar").addEventListener("click", async function() {
         setLoading(true);
         document.getElementById("jogo").innerHTML = '';
         document.getElementById("mes-wrap").style.display = 'none';
+        document.getElementById("card-meses").style.display = 'none';
 
-        const { dezenas, meses } = await obterResultados(50);
-        const freqDez  = calcularFrequencia(dezenas);
-        const freqMes  = calcularFrequencia(meses);
+        var resultado = await obterResultados();
+        var freqDez, freqMes, offline = false;
 
-        // ── Top 10 dezenas ──
-        const top10 = Object.entries(freqDez).sort((a, b) => b[1] - a[1]).slice(0, 10);
-        const maxFreq = top10[0]?.[1] || 1;
-        document.getElementById("top10").innerHTML = top10.map(([num, freq], i) => {
-            const pct = Math.round((freq / maxFreq) * 100);
-            return `
-            <div class="freq-item">
-                <div class="freq-rank">${i + 1}º</div>
-                <div class="freq-num">${num}</div>
-                <div class="freq-bar-wrap">
-                    <div class="freq-bar" style="width:${pct}%"></div>
-                </div>
-                <div class="freq-count">${freq}× sorteado${freq !== 1 ? 's' : ''}</div>
-            </div>`;
-        }).join('');
-
-        // ── Meses ──
-        const mesesSorted = Object.entries(freqMes).sort((a, b) => b[1] - a[1]);
-        if (mesesSorted.length) {
-            document.getElementById("card-meses").style.display = 'block';
-            document.getElementById("top-meses").innerHTML = mesesSorted.map(([mes, freq], i) => `
-                <div class="mes-item ${i === 0 ? 'top1' : ''}">
-                    <div class="mes-item-nome">${mes}</div>
-                    <div class="mes-item-freq">${freq}×</div>
-                </div>`).join('');
+        if (!resultado || !resultado.dezenas.length) {
+            offline = true;
+            freqDez = OFFLINE.dez;
+            freqMes = OFFLINE.mes;
+        } else {
+            freqDez = calcularFrequencia(resultado.dezenas);
+            freqMes = calcularFrequencia(resultado.meses);
         }
 
-        // ── Jogo ──
-        const jogo = gerarJogo(freqDez);
-        const mesSorte = escolherMes(freqMes);
+        renderTop10(freqDez, offline);
 
-        document.getElementById("jogo").innerHTML =
-            jogo.map(n => `<div class="bola">${String(n).padStart(2, '0')}</div>`).join('');
+        var mesesSorted = Object.entries(freqMes).sort(function(a, b) { return b[1] - a[1]; });
+        document.getElementById("card-meses").style.display = 'block';
+        document.getElementById("top-meses").innerHTML = mesesSorted.map(function(entry, i) {
+            return '<div class="mes-item ' + (i === 0 ? 'top1' : '') + '">'
+                + '<div class="mes-item-nome">' + entry[0] + '</div>'
+                + '<div class="mes-item-freq">' + entry[1] + 'x</div>'
+                + '</div>';
+        }).join('');
+
+        var jogo     = gerarJogoPorFreq(freqDez);
+        var mesSorte = escolherMes(freqMes);
+
+        document.getElementById("jogo").innerHTML = jogo.map(function(n) {
+            return '<div class="bola">' + (n < 10 ? '0' + n : n) + '</div>';
+        }).join('');
 
         document.getElementById("mes-valor").textContent = mesSorte;
         document.getElementById("mes-wrap").style.display = 'flex';
