@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mega-Sena — Gerador de Jogos</title>
+    <title>Dia de Sorte — Gerador de Jogos</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(150deg, #052e16 0%, #064e3b 50%, #065f46 100%);
+            background: linear-gradient(150deg, #431407 0%, #7c2d12 50%, #9a3412 100%);
             min-height: 100vh;
             display: flex;
             align-items: flex-start;
@@ -17,7 +17,7 @@
             padding: 36px 16px 48px;
         }
 
-        .container { width: 100%; max-width: 660px; }
+        .container { width: 100%; max-width: 680px; }
 
         /* ── Header ── */
         .header {
@@ -42,7 +42,7 @@
             letter-spacing: -0.5px;
         }
         .header-sub {
-            color: rgba(167,243,208,0.75);
+            color: rgba(253,186,116,0.8);
             font-size: 13px;
             font-weight: 500;
             margin-top: 3px;
@@ -54,7 +54,7 @@
             border-radius: 20px;
             padding: 26px 28px;
             margin-bottom: 14px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
         .card-title {
             font-size: 12px;
@@ -77,19 +77,19 @@
             font-family: inherit;
             border: none;
             border-radius: 14px;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
             color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 18px rgba(5,150,105,0.45);
+            box-shadow: 0 4px 18px rgba(234,88,12,0.45);
             transition: transform 0.15s, box-shadow 0.15s;
         }
         .btn-gerar:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(5,150,105,0.55);
+            box-shadow: 0 8px 28px rgba(234,88,12,0.55);
         }
         .btn-gerar:disabled { opacity: 0.65; cursor: not-allowed; }
 
@@ -114,14 +114,14 @@
         .bola {
             width: 62px; height: 62px;
             border-radius: 50%;
-            background: linear-gradient(145deg, #10b981 0%, #059669 60%, #047857 100%);
+            background: linear-gradient(145deg, #fb923c 0%, #ea580c 60%, #c2410c 100%);
             color: white;
             font-size: 20px;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 14px rgba(5,150,105,0.5), inset 0 2px 4px rgba(255,255,255,0.25);
+            box-shadow: 0 4px 14px rgba(234,88,12,0.5), inset 0 2px 4px rgba(255,255,255,0.25);
             animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1) backwards;
         }
         .bola:nth-child(1) { animation-delay: 0.05s; }
@@ -136,25 +136,42 @@
             to   { transform: scale(1) rotate(0deg);  opacity: 1; }
         }
 
+        /* ── Mês da Sorte ── */
+        .mes-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 22px;
+        }
+        .mes-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            border: 2px solid #fed7aa;
+            border-radius: 14px;
+            padding: 12px 22px;
+            animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1) 0.48s backwards;
+        }
+        .mes-icon { font-size: 26px; }
+        .mes-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #9a3412;
+        }
+        .mes-valor {
+            font-size: 18px;
+            font-weight: 800;
+            color: #c2410c;
+        }
+
         .jogo-empty {
             text-align: center;
             color: #9ca3af;
             font-size: 14px;
             padding: 18px 0;
             width: 100%;
-        }
-
-        .nota-7 {
-            background: #ecfdf5;
-            border: 1.5px solid #a7f3d0;
-            border-radius: 12px;
-            padding: 11px 16px;
-            font-size: 12px;
-            color: #065f46;
-            font-weight: 500;
-            margin-top: 18px;
-            text-align: center;
-            line-height: 1.5;
         }
 
         /* ── Top 10 frequências ── */
@@ -171,9 +188,9 @@
         .freq-num {
             width: 36px; height: 36px;
             border-radius: 50%;
-            background: #f0fdf4;
-            border: 2px solid #bbf7d0;
-            color: #065f46;
+            background: #fff7ed;
+            border: 2px solid #fed7aa;
+            color: #9a3412;
             font-size: 13px;
             font-weight: 800;
             display: flex; align-items: center; justify-content: center;
@@ -189,7 +206,7 @@
         .freq-bar {
             height: 100%;
             border-radius: 99px;
-            background: linear-gradient(90deg, #059669, #34d399);
+            background: linear-gradient(90deg, #ea580c, #fb923c);
             transition: width 0.7s ease;
         }
         .freq-count {
@@ -201,11 +218,36 @@
             white-space: nowrap;
         }
 
+        /* ── Top Meses ── */
+        .meses-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        .mes-item {
+            background: #fff7ed;
+            border: 1.5px solid #fed7aa;
+            border-radius: 12px;
+            padding: 9px 8px;
+            text-align: center;
+        }
+        .mes-item-nome {
+            font-size: 12px;
+            font-weight: 700;
+            color: #c2410c;
+        }
+        .mes-item-freq {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+        .mes-item.top1 { background: linear-gradient(135deg,#fff7ed,#ffedd5); border-color: #fb923c; }
+
         /* ── Footer ── */
         .footer {
             text-align: center;
             font-size: 11px;
-            color: rgba(167,243,208,0.5);
+            color: rgba(253,186,116,0.5);
             padding-top: 4px;
         }
     </style>
@@ -218,7 +260,7 @@
         <div class="header-logo">
             <span class="header-icon">🍀</span>
             <div>
-                <div class="header-title">Mega-Sena</div>
+                <div class="header-title">Dia de Sorte</div>
                 <div class="header-sub">Gerador inteligente por frequência histórica</div>
             </div>
         </div>
@@ -231,13 +273,19 @@
         </button>
     </div>
 
-    <div class="card">
-        <div class="card-title">🎯 Jogo sugerido — 7 dezenas</div>
+    <div class="card" id="card-jogo">
+        <div class="card-title">🎯 Jogo sugerido — 7 dezenas + mês da sorte</div>
         <div class="jogo-bolas" id="jogo">
             <div class="jogo-empty">Clique em "Gerar Jogo" para começar</div>
         </div>
-        <div class="nota-7" id="nota" style="display:none">
-            Jogo com <strong>7 dezenas</strong> cobre mais combinações e aumenta suas chances em relação ao jogo simples de 6 números.
+        <div class="mes-wrap" id="mes-wrap" style="display:none">
+            <div class="mes-badge">
+                <span class="mes-icon">📅</span>
+                <div>
+                    <div class="mes-label">Mês da Sorte</div>
+                    <div class="mes-valor" id="mes-valor"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -248,29 +296,44 @@
         </div>
     </div>
 
+    <div class="card" id="card-meses" style="display:none">
+        <div class="card-title">📅 Frequência dos Meses da Sorte</div>
+        <div class="meses-grid" id="top-meses"></div>
+    </div>
+
     <div class="footer">Dados em tempo real via API oficial da Caixa Econômica Federal</div>
 
 </div>
 
 <script>
-    const URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/megasena";
+    const URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/diadesorte";
+
+    const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                   "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
     async function obterResultados(qtd = 50) {
         const dezenas = [];
+        const meses   = [];
+
         await Promise.all(
             Array.from({ length: qtd }, (_, i) => i + 1).map(i =>
                 fetch(`${URL}/${i}`)
                     .then(r => r.ok ? r.json() : null)
-                    .then(data => { if (data?.listaDezenas) dezenas.push(...data.listaDezenas); })
+                    .then(data => {
+                        if (!data) return;
+                        if (data.listaDezenas)  dezenas.push(...data.listaDezenas);
+                        if (data.mesSorte)       meses.push(data.mesSorte);
+                        else if (data.nomeTimeCoracao) meses.push(data.nomeTimeCoracao);
+                    })
                     .catch(() => {})
             )
         );
-        return dezenas;
+        return { dezenas, meses };
     }
 
-    function calcularFrequencia(dezenas) {
+    function calcularFrequencia(arr) {
         const freq = {};
-        dezenas.forEach(n => { freq[n] = (freq[n] || 0) + 1; });
+        arr.forEach(n => { freq[n] = (freq[n] || 0) + 1; });
         return freq;
     }
 
@@ -288,13 +351,21 @@
         return jogo.sort((a, b) => a - b);
     }
 
+    function escolherMes(freqMeses) {
+        const entries = Object.entries(freqMeses).sort((a, b) => b[1] - a[1]);
+        if (entries.length) {
+            const topPool = entries.slice(0, 4).map(([m]) => m);
+            return topPool[Math.floor(Math.random() * topPool.length)];
+        }
+        return MESES[Math.floor(Math.random() * 12)];
+    }
+
     function setLoading(on) {
         const btn   = document.getElementById("gerar");
-        const icon  = document.getElementById("btn-icon");
         const texto = document.getElementById("btn-texto");
         btn.disabled = on;
         if (on) {
-            icon.outerHTML  = '<span class="spinner" id="btn-icon"></span>';
+            document.getElementById("btn-icon").outerHTML = '<span class="spinner" id="btn-icon"></span>';
             texto.textContent = "Buscando concursos...";
         } else {
             document.getElementById("btn-icon").outerHTML = '<span id="btn-icon">🎲</span>';
@@ -305,16 +376,16 @@
     document.getElementById("gerar").addEventListener("click", async () => {
         setLoading(true);
         document.getElementById("jogo").innerHTML = '';
-        document.getElementById("nota").style.display = 'none';
+        document.getElementById("mes-wrap").style.display = 'none';
 
-        const dezenas = await obterResultados(50);
-        const frequencias = calcularFrequencia(dezenas);
+        const { dezenas, meses } = await obterResultados(50);
+        const freqDez  = calcularFrequencia(dezenas);
+        const freqMes  = calcularFrequencia(meses);
 
-        const top10 = Object.entries(frequencias).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        // ── Top 10 dezenas ──
+        const top10 = Object.entries(freqDez).sort((a, b) => b[1] - a[1]).slice(0, 10);
         const maxFreq = top10[0]?.[1] || 1;
-
-        const ul = document.getElementById("top10");
-        ul.innerHTML = top10.map(([num, freq], i) => {
+        document.getElementById("top10").innerHTML = top10.map(([num, freq], i) => {
             const pct = Math.round((freq / maxFreq) * 100);
             return `
             <div class="freq-item">
@@ -327,10 +398,26 @@
             </div>`;
         }).join('');
 
-        const jogo = gerarJogo(frequencias);
+        // ── Meses ──
+        const mesesSorted = Object.entries(freqMes).sort((a, b) => b[1] - a[1]);
+        if (mesesSorted.length) {
+            document.getElementById("card-meses").style.display = 'block';
+            document.getElementById("top-meses").innerHTML = mesesSorted.map(([mes, freq], i) => `
+                <div class="mes-item ${i === 0 ? 'top1' : ''}">
+                    <div class="mes-item-nome">${mes}</div>
+                    <div class="mes-item-freq">${freq}×</div>
+                </div>`).join('');
+        }
+
+        // ── Jogo ──
+        const jogo = gerarJogo(freqDez);
+        const mesSorte = escolherMes(freqMes);
+
         document.getElementById("jogo").innerHTML =
             jogo.map(n => `<div class="bola">${String(n).padStart(2, '0')}</div>`).join('');
-        document.getElementById("nota").style.display = 'block';
+
+        document.getElementById("mes-valor").textContent = mesSorte;
+        document.getElementById("mes-wrap").style.display = 'flex';
 
         setLoading(false);
     });
